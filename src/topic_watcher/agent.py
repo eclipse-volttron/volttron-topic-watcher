@@ -29,6 +29,7 @@ import sqlite3
 
 import gevent
 from volttron import utils
+from volttron.client.logs import setup_logging
 from volttron.client.known_identities import PLATFORM_TOPIC_WATCHER
 from volttron.client.messaging.health import STATUS_BAD, STATUS_GOOD, Status
 from volttron.client.vip.agent import RPC, Agent, Core, build_agent

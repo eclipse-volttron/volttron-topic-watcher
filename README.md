@@ -32,7 +32,7 @@ device point), configuration consists of a key value pair of the topic to its ti
 
 ```json
 {
-    "groupname: {
+    "groupname": {
         "devices/campus/building/point": 10
     }
 }
