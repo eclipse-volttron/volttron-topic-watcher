@@ -573,7 +573,7 @@ class AlertGroup:
             raise ValueError("Invalid topic and point name:{} Only all "
                              "topics can use multiple points in an "
                              "alert group. For topics not ending in "
-                             "/all use standard topic configuration format in "
+                             "/all or /multi use standard topic configuration format in "
                              "alert agent configuration".format(parts))
 
     def send_alert(self, unseen_topics: list):
