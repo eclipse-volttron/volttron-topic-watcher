@@ -36,7 +36,7 @@ from volttron.utils.scheduling import periodic
 from volttron.utils.time import get_aware_utc_now
 from volttron.utils import ClientContext
 
-utils.setup_logging()
+
 _log = logging.getLogger(__name__)
 
 __version__ = "2.1"
@@ -567,6 +567,8 @@ class AlertGroup:
             return parts
         elif parts[0].endswith("/all"):
             return parts[0][:-3] + parts[1]
+        elif parts[0].endswith("/multi"):
+            return parts[0][:-5] + parts[1]
         else:
             raise ValueError("Invalid topic and point name:{} Only all "
                              "topics can use multiple points in an "
