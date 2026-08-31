@@ -32,31 +32,31 @@ device point), configuration consists of a key value pair of the topic to its ti
 
 ```json
 {
-    "groupname: {
+    "groupname": {
         "devices/campus/building/point": 10
     }
 }
 ```
 
-For points published in an "all" style publish, configuration consts of a key mapping to an object as follows:
+For points published in a "multi" or "all" style publish, configuration consists of a key mapping to an object as follows:
 A `seconds` key for the time limit in seconds, and a `points` key consisting of a list of individual points in the
-`all` publish.
+`all` or `multi` publish.
 
-The following is an example "all" publish configuration which configures the Topic Watcher to check for the `temperature`
-and `PowerState` points which are expected to be inside the "all" publishes.
+The following is an example "multi" publish configuration which configures the Topic Watcher to check for the `OutsideAirTemperature1`
+and `PowerState` points which are expected to be inside the "multi" publishes.
 
 ```json
 {
     "groupname": {
-            "devices/fakedriver1/all": {
+        "devices/campus/building/fake/multi": {
             "seconds": 10,
-            "points": ["temperature", "PowerState"]
+            "points": ["OutsideAirTemperature1", "PowerState"]
         }
     }
 }
 ```
 
-It is possible to configure the Topic Watcher to handle both "all" topics and single point topics for the same group:
+It is possible to configure the Topic Watcher to handle both "all" or "multi" topics and single point topics for the same group:
 
 ```json
 {
@@ -73,7 +73,8 @@ It is possible to configure the Topic Watcher to handle both "all" topics and si
 After populating your configuration file, install and start topic watcher in VOLTTRON.
 
 ```shell
-vctl install volttron-topic-watcher --agent-config topic_watcher.json --vip-identity platform.topic_watcher --start
+vctl install volttron-topic-watcher --vip-identity platform.topic_watcher --start
+vctl config store platform.topic_watcher config topic_watcher.json
 ```
 
 View the status of the installed agent
