@@ -73,13 +73,7 @@ It is possible to configure the Topic Watcher to handle both "all" or "multi" to
 After populating your configuration file, install and start topic watcher in VOLTTRON.
 
 ```shell
-# Install and start the topic watcher agent
 vctl install volttron-topic-watcher --vip-identity platform.topic_watcher --start
-
-# Or if installing from a local directory:
-# vctl install /path/to/volttron-topic-watcher --vip-identity platform.topic_watcher --start
-
-# Store the configuration in the config store
 vctl config store platform.topic_watcher config topic_watcher.json
 ```
 
